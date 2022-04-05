@@ -22,27 +22,27 @@
                         <table>
                             <tr>
                                 <td>Nama</td>
-                                <td> : <b><?= $nama2;?></b></td>
+                                <td> : <b><{{ $nama2; }}</b></td>
                             </tr>
                             <tr>
                                 <td>Nim</td>
-                                <td> : <b><?= $nim;?></b></td>
+                                <td> : <b>{{ $nim; }}</b></td>
                             </tr>
                             <tr>
                                 <td>Umur</td>
-                                <td> : <b><?= $umur;?></b></td>
+                                <td> : <b>{{ $umur; }}</b></td>
                             </tr>
                             <tr>
                                 <td>Lahir</td>
-                                <td> : <b><?= $lahir;?></b>1</td>
+                                <td> : <b>{{ $lahir; }}</b></td>
                             </tr>
                             <tr>
                                 <td>Agama</td>
-                                <td> : <b><?= $agama;?></b></td>
+                                <td> : <b>{{ $agama; }}</b></td>
                             </tr>
                             <tr>
                                 <td>Status</td>
-                                <td> : <b><?= $status;?></b></td>
+                                <td> : <b>{{ $status; }}</b></td>
                             </tr>
                             <tr>
                                 <td>Jenis Kelamin</td>

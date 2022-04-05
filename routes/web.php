@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', function () {
     return view('about', [
         "nama" => "HARY",
@@ -76,7 +79,14 @@ Route::get('/mahasiswa/{nama}', function ($nama){
     return "Nama Mahasiswa : $nama";
 });
 
-Route::get('/profile', [ProfileController::class,'index']);
+// Route::get('/profile', [ProfileController::class,'index']);
+
+Route::view('partial', 'partial/master');
+
+Route::get('data-mahasiswa',[MahasiswaController::class, 'index']);
+Route::get('add-mahasiswa',[MahasiswaController::class, 'create']);
+
+
 
 // Route::get('/', [ProfileController::class,'about']);
 // Route::get('/education', [ProfileController::class,'education']);
