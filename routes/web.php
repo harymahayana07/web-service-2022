@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Tugas Portfolio
 Route::get('/', function () {
     return view('about', [
         "nama" => "HARY",
@@ -43,6 +44,7 @@ Route::get('/education', function(){
         "ubg" => "UNIVERSITAS BUMIGORA"
     ]);
 });
+
 Route::get('/portfolio', function(){
     return view('portfolio',[
         "nama" => "HARY",
@@ -74,20 +76,22 @@ Route::get('/tes', function(){
     return'I Made hary mahayana';
 });
 
-
 Route::get('/mahasiswa/{nama}', function ($nama){
     return "Nama Mahasiswa : $nama";
 });
-
-// Route::get('/profile', [ProfileController::class,'index']);
 
 Route::view('partial', 'partial/master');
 
 Route::get('data-mahasiswa',[MahasiswaController::class, 'index']);
 Route::get('add-mahasiswa',[MahasiswaController::class, 'create']);
+Route::post('getData',[MahasiswaController::class, 'ambilData'])->name('mahasiswa.getData');
+// Route::get('update-mahasiswa',[MahasiswaController::class, 'update']);
+// Route::get('delete-mahasiswa',[MahasiswaController::class, 'delete']);
+Route::get('data-blog',[BlogController::class, 'index']);
+Route::get('add-blog',[BlogController::class, 'create']);
+Route::post('getData',[BlogController::class, 'ambilData'])->name('blog.getData');
 
-
-
+// Route::get('/profile', [ProfileController::class,'index']);
 // Route::get('/', [ProfileController::class,'about']);
 // Route::get('/education', [ProfileController::class,'education']);
 // Route::get('/portfolio', [ProfileController::class,'portfolio']);

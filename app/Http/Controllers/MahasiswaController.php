@@ -17,4 +17,12 @@ class MahasiswaController extends Controller
     {
         return view('mahasiswa/add');
     }
+    public function ambilData(Request $request)
+    {
+        $data = Mahasiswa::create($request->all());
+        // redirect
+        return redirect('data-mahasiswa');
+        // dd($request->all());
+    }
+   
 }
