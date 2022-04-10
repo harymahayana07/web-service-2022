@@ -13,12 +13,14 @@ class CreateBlogTable extends Migration
      */
     public function up()
     {
+
+        // membuat tabel blog > id,author,title,body,keyword,timestamps.
         Schema::create('blog', function (Blueprint $table) {
-            $table->id();
-            $table->varchar('author');
-            $table->varchar('title');
+            $table->increments('id');
+            $table->string('author',10);
+            $table->string('title',50);
             $table->text('body');
-            $table->varchar('keyword');
+            $table->string('keyword');
             $table->timestamps();
         });
     }

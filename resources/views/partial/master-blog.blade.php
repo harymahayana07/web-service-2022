@@ -1,3 +1,4 @@
+<!-- menambah navbar untuk blog by arikk -->
 <!doctype html>
 <html lang="en">
 

@@ -1,3 +1,4 @@
+<!-- navbar blog by arikk -->
 <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
     <div class="container">
         <a class="navbar-brand" href="#">HARY</a>

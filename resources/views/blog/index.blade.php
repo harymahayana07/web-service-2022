@@ -1,3 +1,4 @@
+<!-- menambahkan index/home untuk blog -->
 @extends('partial.master-blog')
 
 @section('judul','Data-blog')
