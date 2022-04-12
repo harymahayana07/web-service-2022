@@ -17,8 +17,8 @@
                             <form action="{{ route('blog.getData') }}" method="post">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <!-- <label for="iidd">ID HIDDEN</label> -->
-                                    <input type="hidden" id="iidd" name="id" class="form-control" required autocomplete="off" autofocus>
+                                    <label for="iidd">ID </label>
+                                    <input type="text" id="iidd" name="id" class="form-control"  autocomplete="off" autofocus>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="at">author</label>

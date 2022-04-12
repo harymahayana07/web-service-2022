@@ -31,7 +31,15 @@
                                  <td>{{ $row->nim }}</td>
                                  <td>{{ $row->nama_mahasiswa }}</td>
                                  <td>{{ $row->semester }}</td>
-                                 <td><a href="#"> DELETE |</a> <a href="#"> UPDATE </a></td>
+                                 <td>
+                                    <form action=" {{ route('delete.mahasiswa', $row->id) }}" method="post">
+                                 @csrf
+                                 @method('delete')
+                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
+
+                                    </form>
+                                    <a href="#"> UPDATE </a>
+                                 </td>
                               </tr>
                               @endforeach
                            </tbody>

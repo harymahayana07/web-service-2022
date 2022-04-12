@@ -19,10 +19,20 @@ class MahasiswaController extends Controller
     }
     public function ambilData(Request $request)
     {
+        $this->validate($request,[
+            'nim' => 'required|unique:mahasiswa|min:4',
+            'nama_mahasiswa' => 'required|min:4',
+            'semester' => 'required|numeric',
+        ]);
         $data = Mahasiswa::create($request->all());
         // redirect
-        return redirect('data-mahasiswa');
+        return redirect(url('data-mahasiswa'));
         // dd($request->all());
+    }
+    public function destroy(Mahasiswa $id){
+        $id->delete();
+        return redirect(url('data-mahasiswa'));
+
     }
    
 }

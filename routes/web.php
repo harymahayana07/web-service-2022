@@ -84,7 +84,8 @@ Route::view('partial', 'partial/master');
 
 Route::get('data-mahasiswa',[MahasiswaController::class, 'index']);
 Route::get('add-mahasiswa',[MahasiswaController::class, 'create']);
-Route::post('getData',[MahasiswaController::class, 'ambilData'])->name('mahasiswa.getData');
+Route::post('save-mahasiswa',[MahasiswaController::class, 'ambilData'])->name('mahasiswa.save-mahasiswa');
+Route::delete('delete-mahasiswa/{id}', [MahasiswaController::class, 'destroy'])->name('delete.mahasiswa');
 
 // tugas web 3 web route :
 Route::get('data-blog',[BlogController::class, 'index']);
