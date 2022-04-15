@@ -1,6 +1,6 @@
 @extends('partial.master')
 
-@section('judul','tambah-blog')
+@section('judul','tambah-mahasiswa')
 
 @section('content')
 <div class="content-wrapper">
@@ -28,22 +28,19 @@
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="nims">Nim</label>
-                                    <input type="number" id="nims" name="nim" class="form-control" value="{{old('nim')}}">
+                                    <input type="number" id="nims" name="nim" class="form-control" value="{{old('nim')}}" autocomplete="off" autofocus>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="nm">Nama</label>
-                                    <input type="text" id="nm" name="nama_mahasiswa" class="form-control" value="{{old('nama_mahasiswa')}}">
+                                    <input type="text" id="nm" name="nama_mahasiswa" class="form-control" value="{{old('nama_mahasiswa')}}" autocomplete="off">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="smt">Semester</label>
-                                    <input type="number" id="smt" name="semester" class="form-control" value="{{old('semeseter')}}">
+                                    <input type="number" id="smt" name="semester" class="form-control" value="{{old('semeseter')}}" autocomplete="off">
                                 </div>
-                                <!-- <div class="form-group mb-3">
-                                <label for="ss">TEXT</label>
-                                <textarea name="txtisi" id="ss" cols="30" rows="2"></textarea>
-                            </div> -->
-                                <input type="submit" name="submit" value="Simpan Data">
-                            <a class="btn btn-default" href="{{ url('data-mahasiswa') }}" role="button">Kembali</a>
+
+                                <input type="submit" class="btn btn-primary" name="submit" value="Simpan Data">
+                                <a class="btn btn-secondary" href="{{ url('data-mahasiswa') }}" role="button">Kembali</a>
 
                             </form>
                         </div>

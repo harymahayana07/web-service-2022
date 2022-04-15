@@ -81,17 +81,23 @@ Route::get('/mahasiswa/{nama}', function ($nama){
 });
 
 Route::view('partial', 'partial/master');
-
+// Route untuk Praktikum 
 Route::get('data-mahasiswa',[MahasiswaController::class, 'index']);
 Route::get('add-mahasiswa',[MahasiswaController::class, 'create']);
 Route::post('save-mahasiswa',[MahasiswaController::class, 'ambilData'])->name('mahasiswa.save-mahasiswa');
 Route::delete('delete-mahasiswa/{id}', [MahasiswaController::class, 'destroy'])->name('delete.mahasiswa');
+Route::get('edit-mahasiswa/{id}/edit', [MahasiswaController::class, 'edit'])->name('edit.mahasiswa');
+Route::put('edit-mahasiswa/{id}', [MahasiswaController::class, 'update'])->name('update.mahasiswa');
 
 // tugas web 3 web route :
 Route::get('data-blog',[BlogController::class, 'index']);
 Route::get('add-blog',[BlogController::class, 'create']);
-Route::post('getData',[BlogController::class, 'ambilData'])->name('blog.getData');
+Route::post('save-blog',[BlogController::class, 'ambilData'])->name('blog.save-blog');
+Route::delete('delete-blog/{id}', [BlogController::class, 'destroy'])->name('delete.blog');
+Route::get('edit-blog/{id}/edit', [BlogController::class, 'edit'])->name('edit.blog');
+Route::put('edit-blog/{id}', [BlogController::class, 'update'])->name('update.blog');
 
+// Route untuk Portfolio :
 // Route::get('/profile', [ProfileController::class,'index']);
 // Route::get('/', [ProfileController::class,'about']);
 // Route::get('/education', [ProfileController::class,'education']);
