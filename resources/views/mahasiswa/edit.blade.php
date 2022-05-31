@@ -16,16 +16,16 @@
                             @if($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
-                                   
-                                        @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                   
+
+                                    @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                             @endif
                             <form action="{{ url('edit-mahasiswa')}}/{{ $data->id }}" method="post">
-                                @method('put')
+                                @method('PATCH')
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="nims">Nim</label>
@@ -44,7 +44,7 @@
                                 <textarea name="txtisi" id="ss" cols="30" rows="2"></textarea>
                             </div> -->
                                 <input type="submit" class="btn btn-success" name="submit" value="Simpan Data">
-                           
+
                                 <a class="btn btn-secondary" href="{{ url('data-mahasiswa') }}" role="button">Kembali</a>
 
                             </form>

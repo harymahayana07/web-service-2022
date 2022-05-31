@@ -32,12 +32,14 @@
                                  <td>{{ $row->nama_mahasiswa }}</td>
                                  <td>{{ $row->semester }}</td>
                                  <td>
+
                                     <a class="btn btn-success btn-sm" href="{{ url('edit-mahasiswa')}}/{{ $row->id }}/edit" role="button"><i class="fas fa-add"></i> Update </a>
                                     <form action=" {{ route('delete.mahasiswa', $row->id) }}" method="post" class="d-inline">
                                        @csrf
                                        @method('delete')
                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</button>
                                     </form>
+
                                  </td>
                               </tr>
                               @endforeach

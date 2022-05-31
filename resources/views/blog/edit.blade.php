@@ -1,7 +1,7 @@
 <!-- tambah data blog by arikk -->
 @extends('partial.master-blog')
 
-@section('judul','tambah-blog')
+@section('judul','Edit-blog')
 
 @section('content')
 <div class="content-wrapper">
@@ -11,17 +11,17 @@
                 <div class="col-6">
                     <div class="card">
                         <div class="card-header bg-primary" style="float: right;">
-                            <h3 class="card-title">Tambah Data blog</h3>
+                            <h3 class="card-title">Edit Data blog</h3>
                         </div>
                         <div class="card-body">
-                        @if($errors->any())
+                            @if($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
-                                   
-                                        @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                   
+
+                                    @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                             @endif
@@ -42,15 +42,15 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="bd">body</label>
-                                    <textarea name="body" id="bd" cols="30" rows="2" value="{{old('body')}}" autocomplete="off">{{ $data->body }}</textarea >
+                                    <textarea name="body" id="bd" cols="30" rows="2" value="{{old('body')}}" autocomplete="off">{{ $data->body }}</textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="key">keyword</label>
                                     <input type="text" id="key" name="keyword" class="form-control" value="{{old('keyword', $data->keyword)}}" autocomplete="off">
                                 </div>
-                               
+
                                 <input type="submit" class="btn btn-success" name="submit" value="Simpan Data">
-                            <a class="btn btn-primary" href="{{ url('data-blog') }}" role="button">Kembali</a>
+                                <a class="btn btn-primary" href="{{ url('data-blog') }}" role="button">Kembali</a>
 
                             </form>
                         </div>
