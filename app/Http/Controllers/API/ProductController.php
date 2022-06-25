@@ -51,13 +51,16 @@ class ProductController extends Controller
             return response()->json(['pesan' => 'data tidak ditemukan', 'data' => ''], 404);
         } else {
             $validasi = Validator::make($request->all(), [
-                'id' => 'required|numeric|unique:products',
                 'name' => 'required',
                 'description' => 'required',
                 'price' => 'required|numeric',
                 'category_id' => 'required|numeric'
             ]);
-            if ($validasi->fails()) {
+            // menambahkan validasi jika request->id dikirimkan tidak sama dengan products->id
+            if ($request->id != $products->id) {
+                $validasi['id'] = 'required|numeric|unique:products';
+            }
+            else if ($validasi->fails()) {
                 return response()->json(['pesan' => 'Data Gagal diUpdate', 'data' => $validasi->errors()->all()], 404);
             }
             $products->update($request->all());

@@ -51,13 +51,16 @@ class CustomerController extends Controller
             return response()->json(['pesan' => 'data tidak ditemukan', 'data' => ''], 404);
         } else {
             $validasi = Validator::make($request->all(), [
-                'id' => 'required|unique:customer',
                 'name' => 'required',
                 'phone' => 'required',
                 'email' => 'required',
                 'address' => 'required'
             ]);
-            if ($validasi->fails()) {
+            // menambahkan validasi jika request->id dikirimkan tidak sama dengan customers->id
+            if ($request->id != $customers->id) {
+                $validasi['id'] = 'required|numeric|unique:customer';
+            }
+             else if ($validasi->fails()) {
                 return response()->json(['pesan' => 'Data Gagal diUpdate', 'data' => $validasi->errors()->all()], 404);
             }
             $customers->update($request->all());

@@ -50,11 +50,14 @@ class OrderController extends Controller
             return response()->json(['pesan' => 'data tidak ditemukan', 'data' => ''], 404);
         } else {
             $validasi = Validator::make($request->all(), [
-                'id' => 'required|numeric|unique:orders',
                 'customer_id' => 'required|numeric',
                 'product_id' => 'required|numeric',
                 'status' => 'required',
             ]);
+            // menambahkan validasi jika request->id dikirimkan tidak sama dengan orders->id
+            if ($request->id != $orders->id) {
+                $validasi['id'] = 'required|numeric|unique:orders';
+            }
             if ($validasi->fails()) {
                 return response()->json(['pesan' => 'Data Gagal diUpdate', 'data' => $validasi->errors()->all()], 404);
             }

@@ -49,11 +49,14 @@ class CategorieController extends Controller
             return response()->json(['pesan' => 'data tidak ditemukan', 'data' => ''], 404);
         } else {
             $validasi = Validator::make($request->all(), [
-                'id' => 'required|numeric|unique:categories',
                 'name' => 'required',
                 
             ]);
-            if ($validasi->fails()) {
+            // menambahkan validasi jika request->id dikirimkan tidak sama dengan category->id
+            if ($request->id != $category->id) {
+                $validasi['id'] = 'required|numeric|unique:categories';
+            }
+            else if ($validasi->fails()) {
                 return response()->json(['pesan' => 'Data Gagal diUpdate', 'data' => $validasi->errors()->all()], 404);
             }
             $category->update($request->all());
